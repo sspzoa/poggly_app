@@ -1,14 +1,14 @@
 import 'package:dio/dio.dart';
 
-class PGHttpResponse {
+class PogglyHttpResponse {
   dynamic data;
 
-  PGHttpResponse({
+  PogglyHttpResponse({
     this.data,
   });
 
-  factory PGHttpResponse.fromDioResponse(Response dioResponse) =>
-      PGHttpResponse(
+  factory PogglyHttpResponse.fromDioResponse(Response dioResponse) =>
+      PogglyHttpResponse(
         data: dioResponse.data['data'],
       );
 }

@@ -6,11 +6,11 @@ import 'package:poggly_app/app/provider/model/response.dart';
 abstract class ApiProvider {
   final Dio dio = Dio();
 
-  Future<PGHttpResponse> get(String path,
+  Future<PogglyHttpResponse> get(String path,
       {Map<String, dynamic>? queryParameters, Options? options}) async {
     Response dioResponse =
         await dio.get(path, queryParameters: queryParameters, options: options);
-    return PGHttpResponse.fromDioResponse(dioResponse);
+    return PogglyHttpResponse.fromDioResponse(dioResponse);
   }
 
   Future<Stream<Map<String, dynamic>>> getStream(String path) async {
@@ -35,28 +35,28 @@ abstract class ApiProvider {
     );
   }
 
-  Future<PGHttpResponse> delete(String path, {dynamic data}) async {
+  Future<PogglyHttpResponse> delete(String path, {dynamic data}) async {
     Response dioResponse = await dio.delete(path, data: data);
-    return PGHttpResponse.fromDioResponse(dioResponse);
+    return PogglyHttpResponse.fromDioResponse(dioResponse);
   }
 
-  Future<PGHttpResponse> post(String path,
+  Future<PogglyHttpResponse> post(String path,
       {dynamic data,
       Map<String, dynamic>? queryParameters,
       Options? options}) async {
     Response dioResponse = await dio.post(path,
         data: data, queryParameters: queryParameters, options: options);
-    return PGHttpResponse.fromDioResponse(dioResponse);
+    return PogglyHttpResponse.fromDioResponse(dioResponse);
   }
 
-  Future<PGHttpResponse> patch(String path, {dynamic data}) async {
+  Future<PogglyHttpResponse> patch(String path, {dynamic data}) async {
     Response dioResponse = await dio.patch(path, data: data);
-    return PGHttpResponse.fromDioResponse(dioResponse);
+    return PogglyHttpResponse.fromDioResponse(dioResponse);
   }
 
-  Future<PGHttpResponse> put(String path,
+  Future<PogglyHttpResponse> put(String path,
       {dynamic data, Options? options}) async {
     Response dioResponse = await dio.put(path, data: data, options: options);
-    return PGHttpResponse.fromDioResponse(dioResponse);
+    return PogglyHttpResponse.fromDioResponse(dioResponse);
   }
 }

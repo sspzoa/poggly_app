@@ -12,7 +12,7 @@ class WelcomeRepository {
   Future<Welcome> getWelcome() async {
     String url = '/welcome';
 
-    PGHttpResponse response = await api.get(url);
+    PogglyHttpResponse response = await api.get(url);
 
     Welcome welcome = Welcome.fromJson(response.data);
 
